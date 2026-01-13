@@ -1,72 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Wear Royale</title>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>PHONE HACKED</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: monospace;
+}
+
+body{
+  background:black;
+  color:#00ff00;
+  height:100vh;
+  overflow:hidden;
+}
+
+/* Screen shake */
+body.shake{
+  animation: shake 0.15s infinite;
+}
+
+@keyframes shake{
+  0%{transform:translate(1px,1px);}
+  50%{transform:translate(-1px,-1px);}
+  100%{transform:translate(1px,-1px);}
+}
+
+/* Terminal */
+#terminal{
+  padding:15px;
+  font-size:14px;
+  line-height:1.4;
+  white-space:pre-wrap;
+}
+
+/* Scan lines */
+.scan{
+  position:fixed;
+  inset:0;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0,255,0,0.08),
+    rgba(0,255,0,0.08) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  pointer-events:none;
+}
+
+/* Warning screen */
+#alert{
+  position:fixed;
+  inset:0;
+  background:black;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:red;
+  font-size:22px;
+  padding:20px;
+}
+
+/* Glitch title */
+.glitch{
+  position:fixed;
+  top:10px;
+  right:10px;
+  font-size:14px;
+  animation:glitch 0.6s infinite;
+}
+
+@keyframes glitch{
+  0%{text-shadow:1px 0 red;}
+  50%{text-shadow:-1px 0 blue;}
+  100%{text-shadow:1px 0 red;}
+}
+</style>
 </head>
+
 <body>
-  <header>
-    <div class="logo">WEAR <span>ROYALE</span></div>
-    <nav>
-      <a href="#">T-Shirts</a>
-      <a href="#">Shirts</a>
-      <a href="#">Pants</a>
-      <a href="#">Co-ords</a>
-      <a href="#">Oversized Collection</a>
-      <a href="#">Winter Wear</a>
-    </nav>
-    <div class="login-cart">
-      <a href="#">Login</a>
-      <span class="cart-icon">🛒</span>
-    </div>
-  </header>
 
-  <main>
-    <section class="hero">
-      <h1>ELEVATE YOUR STYLE</h1>
-      <h2>WITH WEAR ROYALE</h2>
-      <button>SHOP NOW</button>
-    </section>
+<div class="glitch">ACCESSING PHONE...</div>
+<div id="terminal"></div>
+<div class="scan"></div>
 
-    <section class="products">
-      <div class="product">
-        <img src="https://images.unsplash.com/photo-1618354691363-488d3b87b3c1?fit=crop&w=600&h=700" alt="Black Oversized Tee" />
-        <h3>Black Oversized Tee</h3>
-        <p>₹799</p>
-        <button onclick="addToCart('Black Oversized Tee', 799)">Add to Cart</button>
-      </div>
-      <div class="product">
-        <img src="https://images.unsplash.com/photo-1618354691106-f24f0f3d67e4?fit=crop&w=600&h=700" alt="Royal Fit White T-Shirt" />
-        <h3>Royal Fit White T-Shirt</h3>
-        <p>₹749</p>
-        <button onclick="addToCart('Royal Fit White T-Shirt', 749)">Add to Cart</button>
-      </div>
-      <div class="product">
-        <img src="https://images.unsplash.com/photo-1602810318383-9ff61c5f913e?fit=crop&w=600&h=700" alt="Street Style Cargo Pant" />
-        <h3>Street Style Cargo Pant</h3>
-        <p>₹1199</p>
-        <button onclick="addToCart('Street Style Cargo Pant', 1199)">Add to Cart</button>
-      </div>
-      <div class="product">
-        <img src="https://images.unsplash.com/photo-1627328715728-7bcc1b5db87d?fit=crop&w=600&h=700" alt="Premium Joggers" />
-        <h3>Premium Joggers</h3>
-        <p>₹999</p>
-        <button onclick="addToCart('Premium Joggers', 999)">Add to Cart</button>
-      </div>
-    </section>
+<div id="alert">
+⚠️ PHONE SECURITY BREACH ⚠️<br><br>
+ALL DATA COMPROMISED<br>
+DO NOT TURN OFF DEVICE
+</div>
 
-    <section class="contact">
-      <h3>CONTACT US</h3>
-      <p>amanbarnd@gmail.com</p>
-    </section>
-  </main>
+<script>
+const terminal = document.getElementById("terminal");
+const alertBox = document.getElementById("alert");
 
-  <footer>
-    <p>© 2024 WEAR ROYALE</p>
-  </footer>
+const lines = [
+  "Initializing exploit...",
+  "Connecting to unknown server...",
+  "Access granted ✔",
+  "",
+  "Reading phone data...",
+  "OS: Android / iOS",
+  "User: OWNER",
+  "IP: 10.0.0." + Math.floor(Math.random()*255),
+  "",
+  "Extracting contacts...",
+  "Extracting photos...",
+  "Extracting messages...",
+  "",
+  "Uploading data ██████████ 100%",
+  "",
+  "⚠ WARNING ⚠",
+  "PHONE CONTROL LOST",
+  "",
+  ">>> HACK COMPLETE <<<"
+];
 
-  <script src="script.js"></script>
+let l = 0, c = 0;
+
+function type(){
+  if(l < lines.length){
+    if(c < lines[l].length){
+      terminal.innerHTML += lines[l][c];
+      c++;
+      setTimeout(type, 35);
+    }else{
+      terminal.innerHTML += "\n";
+      l++;
+      c = 0;
+      setTimeout(type, 300);
+    }
+  }else{
+    document.body.classList.add("shake");
+    setTimeout(()=>{
+      alertBox.style.display = "flex";
+      if(navigator.vibrate){
+        navigator.vibrate([200,100,200,100,300]);
+      }
+    },1200);
+  }
+}
+
+type();
+</script>
+
 </body>
 </html>
